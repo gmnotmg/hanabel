@@ -1,0 +1,17 @@
+import Link from "next/link";
+import { ArrowLeft, Settings2 } from "lucide-react";
+import { AdminSetupNotice } from "@/components/admin-setup-notice";
+import { requireAdmin } from "@/lib/auth";
+import { isSupabaseConfigured } from "@/lib/config";
+import { getSiteSettings } from "@/lib/catalog-repository";
+import { ImageUploadField } from "@/components/image-upload-field";
+import { updateSiteSettings } from "@/app/admin/actions";
+
+export default async function AdminSettingsPage() {
+  if (!isSupabaseConfigured) return <AdminSetupNotice />;
+  await requireAdmin();
+  const settings = await getSiteSettings();
+  const social = (icon: string) => settings.socialLinks.find((item) => item.icon === icon)?.href ?? "";
+  const inputClass = "focus-ring min-h-11 w-full rounded-xl border border-lilac-100 bg-white px-3 text-sm text-ink outline-none placeholder:text-muted/60";
+  return <div className="mx-auto max-w-3xl space-y-7"><Link href="/admin" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full px-1 text-sm font-bold text-lilac-700"><ArrowLeft aria-hidden="true" size={17} /> Kembali ke overview</Link><section className="surface-card p-7 sm:p-9"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-lilac-100 text-lilac-600"><Settings2 aria-hidden="true" size={22} /></span><p className="eyebrow mt-5">Brand settings</p><h1 className="mt-2 text-2xl font-black tracking-tight text-ink">Pengaturan brand</h1><p className="mt-3 text-sm leading-6 text-muted">Atur identitas yang tampil di halaman public tanpa mengubah kode.</p><form action={updateSiteSettings} className="mt-7 space-y-5"><div><label htmlFor="brand-name" className="mb-1.5 block text-xs font-black text-ink">Nama brand</label><input id="brand-name" name="brandName" required defaultValue={settings.brandName} className={inputClass} /></div><div><label htmlFor="brand-handle" className="mb-1.5 block text-xs font-black text-ink">Handle</label><input id="brand-handle" name="handle" defaultValue={settings.handle} className={inputClass} /></div><div><label htmlFor="brand-bio" className="mb-1.5 block text-xs font-black text-ink">Bio</label><textarea id="brand-bio" name="bio" required defaultValue={settings.bio} className={`${inputClass} min-h-24 py-3`} /></div><div><label className="mb-1.5 block text-xs font-black text-ink">Avatar</label><ImageUploadField name="avatarUrl" valueMode="url" defaultValue={settings.avatarUrl} /></div><div><label className="mb-1.5 block text-xs font-black text-ink">Cover</label><ImageUploadField name="coverUrl" valueMode="url" defaultValue={settings.coverUrl} /></div><div><label htmlFor="disclosure" className="mb-1.5 block text-xs font-black text-ink">Affiliate disclosure</label><textarea id="disclosure" name="disclosure" required defaultValue={settings.disclosure} className={`${inputClass} min-h-24 py-3`} /></div><div className="border-t border-lilac-100 pt-5"><p className="eyebrow">Social links</p><div className="mt-4 grid gap-4 sm:grid-cols-2">{["instagram", "tiktok", "threads", "facebook"].map((icon) => <div key={icon}><label htmlFor={`social-${icon}`} className="mb-1.5 block text-xs font-black capitalize text-ink">{icon}</label><input id={`social-${icon}`} name={icon} type="url" defaultValue={social(icon)} className={inputClass} placeholder={`https://${icon}.com/...`} /></div>)}</div></div><button type="submit" className="focus-ring min-h-12 w-full rounded-2xl bg-ink px-5 text-sm font-black text-white transition hover:bg-lilac-600">Simpan pengaturan</button></form></section></div>;
+}

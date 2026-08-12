@@ -1,0 +1,15 @@
+import Link from "next/link";
+import { Edit3, Plus, Trash2 } from "lucide-react";
+import { AdminCategoryForm } from "@/components/admin-category-form";
+import { createCategory, deleteCategory } from "@/app/admin/actions";
+import { getAdminCategories } from "@/lib/admin-repository";
+import { requireAdmin } from "@/lib/auth";
+import { isSupabaseConfigured } from "@/lib/config";
+import { AdminSetupNotice } from "@/components/admin-setup-notice";
+
+export default async function AdminCategoriesPage() {
+  if (!isSupabaseConfigured) return <AdminSetupNotice />;
+  await requireAdmin();
+  const categories = await getAdminCategories();
+  return <div className="mx-auto max-w-5xl space-y-8"><header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="eyebrow">Catalog structure</p><h1 className="mt-2 text-3xl font-black tracking-tight text-ink">Kategori</h1><p className="mt-2 text-sm text-muted">Susun pintu masuk agar pengunjung menemukan produk dalam beberapa langkah.</p></div><Link href="#new" className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-5 text-sm font-black text-white hover:bg-lilac-600"><Plus aria-hidden="true" size={17} /> Kategori baru</Link></header><section id="new" className="surface-card scroll-mt-6 p-6 sm:p-8"><p className="eyebrow">Create</p><h2 className="mt-1 text-xl font-black text-ink">Tambah kategori</h2><div className="mt-6"><AdminCategoryForm action={createCategory} /></div></section><section className="surface-card overflow-hidden"><div className="border-b border-lilac-100 px-6 py-5"><p className="eyebrow">All categories</p><h2 className="mt-1 text-xl font-black text-ink">Daftar kategori</h2></div><div className="divide-y divide-lilac-100">{categories.map((category) => <div key={category.id} className="flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"><div className="flex min-w-0 items-center gap-3"><span className="h-4 w-4 shrink-0 rounded-full" style={{ backgroundColor: category.accentColor }} /><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="truncate text-sm font-black text-ink">{category.name}</h3><span className="rounded-full bg-lilac-50 px-2 py-1 text-[0.62rem] font-black text-lilac-700">{category.productCount ?? 0} produk</span></div><p className="mt-1 truncate text-xs text-muted">/{category.slug} · {category.status}</p></div></div><div className="flex shrink-0 gap-2"><Link href={`/admin/kategori/${category.id}`} className="focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-lilac-100 px-3 text-xs font-black text-lilac-700 hover:bg-lilac-50"><Edit3 aria-hidden="true" size={14} /> Edit</Link><form action={deleteCategory}><input type="hidden" name="id" value={category.id} /><button type="submit" className="focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-rose-100 px-3 text-xs font-black text-rose-600 hover:bg-rose-50"><Trash2 aria-hidden="true" size={14} /> Hapus</button></form></div></div>)}</div></section></div>;
+}

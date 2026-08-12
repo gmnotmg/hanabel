@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8f4ff;
+  --surface: #ffffff;
+  --ink: #291d35;
+  --muted: #766b80;
+  --line: rgba(126, 90, 157, 0.14);
+  --primary: #9855d8;
+  --primary-deep: #7436b4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 206, 234, 0.44), transparent 26rem),
+    radial-gradient(circle at 96% 10%, rgba(206, 190, 255, 0.42), transparent 30rem),
+    var(--background);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: #dfc5fb;
+  color: #291d35;
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-[1120px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .surface-card {
+    @apply rounded-[28px] border border-white/80 bg-white/90 shadow-card backdrop-blur;
+  }
+
+  .eyebrow {
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.18em] text-lilac-600;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-lilac-200;
+  }
+
+  .soft-link {
+    @apply text-lilac-600 underline decoration-lilac-300 underline-offset-4 transition;
+  }
+
+  .soft-link:hover {
+    @apply text-lilac-700;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
