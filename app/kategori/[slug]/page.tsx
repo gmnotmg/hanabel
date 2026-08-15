@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: Props) {
           Kembali ke Beranda
         </Link>
         <header className="rounded-[24px] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04] overflow-hidden p-6 sm:p-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="flex flex-col gap-6">
             <div>
               <div className="mb-4 flex items-center gap-2 text-[0.8rem] font-bold text-slate-400">
                 <Link href="/" className="transition-colors hover:text-[#8c56d4]">Home</Link>
@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: Props) {
               <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{category.name}</h1>
               <p className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-slate-500">{category.description}</p>
             </div>
-            <div className="w-full md:w-auto">
+            <div className="w-full">
               <SearchBox compact />
             </div>
           </div>
