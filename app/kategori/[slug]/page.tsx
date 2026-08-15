@@ -46,7 +46,7 @@ export default async function CategoryPage({ params }: Props) {
               <p className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-slate-500">{category.description}</p>
             </div>
             <div className="w-full">
-              <SearchBox compact />
+              <SearchBox />
             </div>
           </div>
         </header>
