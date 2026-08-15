@@ -22,10 +22,10 @@ export function CategoryCard({ category }: { category: Category }) {
   return (
     <Link
       href={`/kategori/${category.slug}`}
-      className="group relative flex h-full w-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] hover-bounce active-jelly"
+      className="group relative flex h-[240px] w-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] hover-bounce active-jelly"
     >
-      {/* ── Top Area (Image Placeholder) ── */}
-      <div className="relative h-40 w-full bg-slate-100 flex items-center justify-center overflow-hidden">
+      {/* ── Top Area (Image - 5/8 height = 150px) ── */}
+      <div className="relative h-[150px] shrink-0 w-full bg-slate-100 flex items-center justify-center overflow-hidden">
         <Image 
           src={imageUrl} 
           alt={category.name} 
@@ -35,8 +35,8 @@ export function CategoryCard({ category }: { category: Category }) {
         />
       </div>
 
-      {/* ── Bottom Content ── */}
-      <div className="flex flex-1 flex-col justify-center p-4 pb-5 sm:p-5">
+      {/* ── Bottom Content (Body - 3/8 height = 90px) ── */}
+      <div className="flex flex-1 flex-col justify-center px-4 py-3 sm:px-5">
         <div>
           <h4 className="text-[0.9rem] font-bold text-slate-900 tracking-tight line-clamp-2 leading-snug">
             Koleksi {category.name}
