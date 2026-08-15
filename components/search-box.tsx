@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 
 export function SearchBox({ defaultValue = "", compact = false }: { defaultValue?: string; compact?: boolean }) {
   return (
-    <form action="/search" className={`group relative ${compact ? "max-w-sm" : "mx-1"}`} role="search">
+    <form action="/search" className={`group relative w-full ${compact ? "max-w-sm" : ""}`} role="search">
       <label htmlFor="catalog-search" className="sr-only">Cari kategori atau produk</label>
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-4">
         <Search size={18} className="text-slate-400 transition-colors duration-300 group-focus-within:text-[#8c56d4]" />

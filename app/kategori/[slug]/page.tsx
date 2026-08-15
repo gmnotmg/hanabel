@@ -51,7 +51,7 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </header>
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <p className="text-[0.95rem] font-bold text-slate-800"><span className="text-[#8c56d4]">{products.length}</span> rekomendasi pilihan</p>
           <span className="rounded-full bg-white px-4 py-1.5 text-[0.75rem] font-bold text-slate-500 shadow-sm ring-1 ring-black/5">Harga di Shopee</span>
         </div>
