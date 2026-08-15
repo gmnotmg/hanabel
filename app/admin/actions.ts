@@ -181,10 +181,10 @@ export async function updateSiteSettings(formData: FormData) {
 
   await supabase.from("social_links").delete().gte("sort_order", 0);
   const socials = [
-    { label: "Instagram", icon: "instagram", href: text(formData, "instagram"), sort_order: 1 },
-    { label: "TikTok", icon: "tiktok", href: text(formData, "tiktok"), sort_order: 2 },
+    { label: "Facebook", icon: "facebook", href: text(formData, "facebook"), sort_order: 1 },
+    { label: "Instagram", icon: "instagram", href: text(formData, "instagram"), sort_order: 2 },
     { label: "Threads", icon: "threads", href: text(formData, "threads"), sort_order: 3 },
-    { label: "Facebook", icon: "facebook", href: text(formData, "facebook"), sort_order: 4 },
+    { label: "TikTok", icon: "tiktok", href: text(formData, "tiktok"), sort_order: 4 },
   ].filter((social) => social.href);
   if (socials.length > 0) await supabase.from("social_links").insert(socials);
 

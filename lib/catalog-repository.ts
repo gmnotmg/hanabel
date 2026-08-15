@@ -70,6 +70,9 @@ export function mapProduct(raw: unknown): Product {
 export function mapCategory(raw: unknown): Category {
   const row = asRecord(raw);
   const products = Array.isArray(row.products) ? row.products : [];
+  const tags = Array.isArray(row.tags)
+    ? row.tags.filter((tag): tag is string => typeof tag === "string")
+    : undefined;
   return {
     id: asString(row.id),
     slug: asString(row.slug),
@@ -80,6 +83,7 @@ export function mapCategory(raw: unknown): Category {
     sortOrder: asNumber(row.sort_order),
     status: (asString(row.status, "draft") as Category["status"]),
     productCount: asNumber(row.product_count, products.length),
+    tags,
   };
 }
 

@@ -1,41 +1,51 @@
 import Link from "next/link";
-import { Activity, ArrowUpRight, House, Palette, Sparkles, Shirt } from "lucide-react";
 import type { Category } from "@/lib/types";
 
-const icons = {
-  dress: Shirt,
-  beauty: Palette,
-  sparkles: Sparkles,
-  home: House,
-  activity: Activity,
+// Fallback image colors based on category slug
+const getCategoryGradient = (slug: string) => {
+  const gradients: Record<string, string> = {
+    "fashion-style": "from-fuchsia-500 to-pink-500",
+    kecantikan: "from-rose-400 to-orange-400",
+    "dekorasi-rumah": "from-amber-400 to-orange-500",
+    elektronik: "from-blue-500 to-cyan-500",
+    "kesehatan-wellness": "from-emerald-400 to-teal-500",
+    "olahraga-fitness": "from-violet-500 to-indigo-500",
+  };
+  return gradients[slug] || "from-purple-500 to-indigo-500";
 };
 
 export function CategoryCard({ category }: { category: Category }) {
-  const Icon = icons[category.iconKey as keyof typeof icons] ?? Sparkles;
+  const bgGradient = getCategoryGradient(category.slug);
 
   return (
     <Link
       href={`/kategori/${category.slug}`}
-      className="focus-ring group flex min-h-[142px] items-center gap-4 rounded-3xl border border-white bg-white/90 p-4 shadow-card transition duration-200 hover:-translate-y-1 hover:border-lilac-200 hover:shadow-soft"
+      className="group relative flex h-full w-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] hover-bounce active-jelly"
     >
-      <span
-        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-lilac-700"
-        style={{ backgroundColor: category.accentColor }}
-      >
-        <Icon aria-hidden="true" size={25} strokeWidth={1.8} />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="flex items-start justify-between gap-3">
-          <span className="text-base font-black tracking-tight text-ink">{category.name}</span>
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lilac-50 text-lilac-600 transition group-hover:bg-lilac-600 group-hover:text-white">
-            <ArrowUpRight aria-hidden="true" size={17} />
-          </span>
-        </span>
-        <span className="mt-1 block line-clamp-2 text-xs leading-5 text-muted">{category.description}</span>
-        <span className="mt-3 inline-flex rounded-full bg-lilac-50 px-2.5 py-1 text-[0.68rem] font-bold text-lilac-600">
-          {category.productCount ?? 0} pilihan
-        </span>
-      </span>
+      {/* ── Top Area (Image Placeholder) ── */}
+      <div className={`relative h-40 w-full bg-gradient-to-br ${bgGradient} flex items-center justify-center p-6`}>
+        {/* Placeholder for actual image */}
+        <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
+        <h3 className="relative text-2xl font-black tracking-tight text-white drop-shadow-lg text-center leading-tight px-2">
+          {category.name}
+        </h3>
+      </div>
+
+      {/* ── Bottom Content ── */}
+      <div className="flex flex-1 flex-col justify-center p-4 pb-5 sm:p-5">
+        <div>
+          <h4 className="text-[0.9rem] font-bold text-slate-900 tracking-tight line-clamp-1">
+            Koleksi {category.name}
+          </h4>
+          
+          {/* Meta Info */}
+          <div className="mt-1 flex items-center gap-2 text-[0.7rem] font-semibold text-slate-500">
+            <span>{category.productCount ?? 0} Item</span>
+            <span className="h-1 w-1 rounded-full bg-slate-300" />
+            <span className="text-[#8c56d4]">Terbaru</span>
+          </div>
+        </div>
+      </div>
     </Link>
   );
 }

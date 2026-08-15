@@ -10,6 +10,7 @@ export type Category = {
   sortOrder: number;
   status: ContentStatus;
   productCount?: number;
+  tags?: string[];
 };
 
 export type ProductImage = {

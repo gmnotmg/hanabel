@@ -1,11 +1,11 @@
-import { AtSign, ExternalLink, Facebook, Instagram, Link2, Music2 } from "lucide-react";
+import { IconBrandFacebook, IconBrandInstagram, IconBrandThreads, IconBrandTiktok, IconLink, IconExternalLink } from "@tabler/icons-react";
 import type { SocialLink } from "@/lib/types";
 
-export function SocialIcon({ icon, size = 18 }: { icon: SocialLink["icon"]; size?: number }) {
-  if (icon === "instagram") return <Instagram aria-hidden="true" size={size} />;
-  if (icon === "tiktok") return <Music2 aria-hidden="true" size={size} />;
-  if (icon === "facebook") return <Facebook aria-hidden="true" size={size} />;
-  if (icon === "threads") return <AtSign aria-hidden="true" size={size} />;
-  if (icon === "link") return <Link2 aria-hidden="true" size={size} />;
-  return <ExternalLink aria-hidden="true" size={size} />;
+export function SocialIcon({ icon, size = 18, strokeWidth = 2 }: { icon: SocialLink["icon"]; size?: number, strokeWidth?: number }) {
+  if (icon === "instagram") return <IconBrandInstagram aria-hidden="true" size={size} stroke={strokeWidth} />;
+  if (icon === "tiktok") return <IconBrandTiktok aria-hidden="true" size={size} stroke={strokeWidth} />;
+  if (icon === "facebook") return <IconBrandFacebook aria-hidden="true" size={size} stroke={strokeWidth} />;
+  if (icon === "threads") return <IconBrandThreads aria-hidden="true" size={size} stroke={strokeWidth} />;
+  if (icon === "link") return <IconLink aria-hidden="true" size={size} stroke={strokeWidth} />;
+  return <IconExternalLink aria-hidden="true" size={size} stroke={strokeWidth} />;
 }
