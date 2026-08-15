@@ -13,7 +13,7 @@ export function SearchBox({ defaultValue = "", compact = false }: { defaultValue
         type="search"
         defaultValue={defaultValue}
         placeholder="Cari koleksi favorit..."
-        className="w-full rounded-full border-0 bg-white py-3.5 pl-11 pr-4 text-[0.9rem] font-medium text-slate-800 outline-none ring-1 ring-black/5 shadow-[0_2px_10px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out placeholder:text-slate-400 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:ring-black/10 focus:scale-[1.01] focus:ring-2 focus:ring-[#8c56d4]/40 focus:shadow-[0_8px_20px_rgba(140,86,212,0.12)]"
+        className="w-full rounded-[16px] border-0 bg-white py-3.5 pl-11 pr-4 text-[0.9rem] font-medium text-slate-800 outline-none ring-1 ring-inset ring-slate-200 shadow-sm transition-all duration-300 placeholder:text-slate-400 hover:ring-slate-300 focus:ring-2 focus:ring-[#8c56d4]/50 focus:shadow-md"
       />
     </form>
   );

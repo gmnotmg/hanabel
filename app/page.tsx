@@ -24,7 +24,7 @@ export default async function HomePage() {
 
 
         {/* ── New / Top Picks (Grid) ── */}
-        <section id="kategori" className="scroll-mt-4 space-y-5" aria-labelledby="category-heading">
+        <section id="kategori" className="scroll-mt-4 space-y-4" aria-labelledby="category-heading">
           <div className="flex items-center justify-between px-1">
             <h2
               id="category-heading"

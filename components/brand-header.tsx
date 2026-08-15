@@ -42,10 +42,10 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
   return (
     <section className="bg-white rounded-[32px] w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04]">
       {/* ── Cover Image Container ── */}
-      <div className="p-3 sm:p-4 pb-0 sm:pb-0">
+      <div className="p-3 pb-0">
         <div className="relative w-full">
           {/* Banner */}
-          <div className="relative h-44 w-full bg-purple-50 rounded-[24px] overflow-hidden">
+          <div className="relative h-44 w-full bg-purple-50 rounded-[20px] overflow-hidden">
             {settings.coverUrl && (
               <Image
                 src={settings.coverUrl}
