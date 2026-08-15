@@ -49,7 +49,7 @@ export default async function HomePage() {
 
         <AffiliateDisclosure text={settings.disclosure} />
 
-        <footer className="mt-8 mb-4 flex flex-col items-center gap-4 rounded-[1.5rem] p-6 text-[0.7rem] font-medium text-gray-400">
+        <footer className="mt-4 mb-4 flex flex-col items-center gap-4 rounded-[1.5rem] p-4 text-[0.7rem] font-medium text-gray-400">
           <div className="flex items-center gap-2">
             <Sparkles size={14} className="text-[#8c56d4]" />
             <p>© {new Date().getFullYear()} Hanabel Official</p>
