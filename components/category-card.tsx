@@ -34,15 +34,17 @@ export function CategoryCard({ category }: { category: Category }) {
       {/* ── Bottom Content ── */}
       <div className="flex flex-1 flex-col justify-center p-4 pb-5 sm:p-5">
         <div>
-          <h4 className="text-[0.9rem] font-bold text-slate-900 tracking-tight line-clamp-1">
+          <h4 className="text-[0.9rem] font-bold text-slate-900 tracking-tight line-clamp-2 leading-snug">
             Koleksi {category.name}
           </h4>
           
           {/* Meta Info */}
-          <div className="mt-1 flex items-center gap-2 text-[0.7rem] font-semibold text-slate-500">
-            <span>{category.productCount ?? 0} Item</span>
-            <span className="h-1 w-1 rounded-full bg-slate-300" />
-            <span className="text-[#8c56d4]">Terbaru</span>
+          <div className="mt-1 flex items-center gap-2 text-[0.7rem] font-semibold text-slate-500 overflow-hidden">
+            <span className="shrink-0">{category.productCount ?? 0} Item</span>
+            <span className="h-1 w-1 shrink-0 rounded-full bg-slate-300" />
+            <span className="text-slate-400 truncate">
+              {category.tags?.join(", ")}
+            </span>
           </div>
         </div>
       </div>
