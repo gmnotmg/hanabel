@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
           {cover?.url ? (
             <Image
               src={cover.url}
-              alt={cover.altText}
+              alt={cover.altText || product.name}
               fill
               sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 260px"
               className="object-cover transition duration-500 group-hover:scale-105"

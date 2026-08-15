@@ -45,14 +45,15 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
       <div className="p-3 pb-0">
         <div className="relative w-full">
           {/* Banner */}
-          <div className="relative h-44 w-full bg-purple-50 rounded-xl overflow-hidden">
+          <div className="relative h-44 sm:h-52 md:h-60 w-full bg-purple-50 rounded-xl overflow-hidden">
             {settings.coverUrl && (
               <Image
                 src={settings.coverUrl}
                 alt=""
                 fill
                 priority
-                sizes="(max-width: 680px) 100vw, 680px"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 1024px"
                 className="object-cover object-[center_calc(50%-10px)]"
               />
             )}

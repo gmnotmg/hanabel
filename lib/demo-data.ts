@@ -10,7 +10,7 @@ export const demoSettings: SiteSettings = {
   handle: "@hanabel.picks",
   bio: "Produk terbaik pilihan Hanabel. Klik kategori dan temukan rekomendasinya.",
   avatarUrl: "/hanabel.jpg",
-  coverUrl: "/profile-bg.png",
+  coverUrl: "/profile-bg-2x.png",
   disclosure:
     "Beberapa tautan di Hanabel adalah tautan affiliate. Harga dan ketersediaan mengikuti Shopee.",
   socialLinks: [
@@ -131,7 +131,7 @@ const product = (
   const now = new Date().toISOString();
   return {
     ...rest,
-    images: [{ url: image(imageId, imageAlt), alt: imageAlt }],
+    images: [{ url: image(imageId, imageAlt), altText: imageAlt } as any],
     createdAt: now,
     updatedAt: now,
   };
