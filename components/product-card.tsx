@@ -41,7 +41,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-2 line-clamp-2 min-h-[40px] text-xs leading-5 text-muted">{product.shortDescription}</p>
         <Link
           href={`/go/${product.slug}`}
-          className="focus-ring mt-auto inline-flex min-h-11 w-full shrink-0 items-center justify-center gap-2 rounded-[16px] bg-lilac-50 px-3 text-[0.8rem] font-black text-lilac-700 transition hover:bg-lilac-600 hover:text-white"
+          className="focus-ring mt-auto inline-flex min-h-10 w-full shrink-0 items-center justify-center gap-1.5 sm:gap-2 rounded-[16px] bg-lilac-50 px-2 sm:px-3 text-[0.7rem] sm:text-[0.75rem] font-black text-lilac-700 transition hover:bg-lilac-600 hover:text-white whitespace-nowrap"
         >
           Lihat di Shopee
           <ExternalLink aria-hidden="true" size={14} />
