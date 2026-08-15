@@ -16,7 +16,7 @@ export default async function HomePage() {
 
   return (
     <main className="page-shell pb-12 pt-5 sm:pb-12 sm:pt-8">
-      <div className="mx-auto max-w-[440px] space-y-8">
+      <div className="mx-auto max-w-[440px] space-y-6">
         
         {/* ── Top Hero / Profile Card ── */}
         <BrandHeader settings={settings} />
@@ -28,12 +28,13 @@ export default async function HomePage() {
           <div className="flex items-center justify-between px-1">
             <h2
               id="category-heading"
-              className="font-bubbly text-[1rem] font-black tracking-tight text-[#1e293b]"
+              className="text-[1.1rem] font-bold tracking-tight text-slate-800"
             >
               Kategori
             </h2>
-            <Link href="#kategori" className="text-xs font-bold text-gray-400 hover:text-[#8c56d4]">
+            <Link href="#kategori" className="group flex items-center gap-1 text-[0.75rem] font-semibold text-slate-500 transition-colors hover:text-[#8c56d4]">
               Lihat Semua
+              <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
