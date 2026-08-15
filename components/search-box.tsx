@@ -4,7 +4,7 @@ export function SearchBox({ defaultValue = "", compact = false }: { defaultValue
   return (
     <form action="/search" className={`group relative ${compact ? "max-w-sm" : "mx-1"}`} role="search">
       <label htmlFor="catalog-search" className="sr-only">Cari kategori atau produk</label>
-      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-4">
         <Search size={18} className="text-slate-400 transition-colors duration-300 group-focus-within:text-[#8c56d4]" />
       </div>
       <input

@@ -40,7 +40,7 @@ export default async function HomePage() {
           <SearchBox />
 
           {/* Cards (Grid Layout - Movie Poster style) */}
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-5">
+          <div className="grid grid-cols-2 gap-4 sm:gap-5">
             {categories.map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
