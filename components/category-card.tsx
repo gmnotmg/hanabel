@@ -25,7 +25,7 @@ export function CategoryCard({ category }: { category: Category }) {
       className="group relative flex h-full w-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] hover-bounce active-jelly"
     >
       {/* ── Top Area (Image Placeholder) ── */}
-      <div className="relative h-40 w-full bg-slate-100 flex items-center justify-center p-6 overflow-hidden">
+      <div className="relative h-40 w-full bg-slate-100 flex items-center justify-center overflow-hidden">
         <Image 
           src={imageUrl} 
           alt={category.name} 
@@ -33,10 +33,6 @@ export function CategoryCard({ category }: { category: Category }) {
           sizes="(max-width: 768px) 50vw, 300px" 
           className="object-cover transition-transform duration-500 group-hover:scale-105" 
         />
-        <div className="absolute inset-0 bg-black/20 mix-blend-overlay transition-opacity duration-300 group-hover:bg-black/10" />
-        <h3 className="relative text-2xl font-black tracking-tight text-white drop-shadow-md text-center leading-tight px-2 z-10">
-          {category.name}
-        </h3>
       </div>
 
       {/* ── Bottom Content ── */}
