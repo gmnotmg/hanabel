@@ -12,7 +12,7 @@ export const demoSettings: SiteSettings = {
   avatarUrl: "/hanabel.jpg",
   coverUrl: "/profile-bg.png",
   disclosure:
-    "Beberapa tautan di Hanabel adalah tautan affiliate. Harga dan ketersediaan mengikuti halaman Shopee.",
+    "Beberapa tautan di Hanabel adalah tautan affiliate. Harga dan ketersediaan mengikuti Shopee.",
   socialLinks: [
     { label: "Facebook", href: "https://facebook.com/", icon: "facebook" },
     { label: "Instagram", href: "https://instagram.com/", icon: "instagram" },

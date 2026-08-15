@@ -40,12 +40,12 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
   });
 
   return (
-    <section className="bg-white rounded-[32px] w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04]">
+    <section className="bg-white rounded-[24px] w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04]">
       {/* ── Cover Image Container ── */}
       <div className="p-3 pb-0">
         <div className="relative w-full">
           {/* Banner */}
-          <div className="relative h-44 w-full bg-purple-50 rounded-[20px] overflow-hidden">
+          <div className="relative h-44 w-full bg-purple-50 rounded-[12px] overflow-hidden">
             {settings.coverUrl && (
               <Image
                 src={settings.coverUrl}
@@ -114,10 +114,10 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
                 aria-label={`Buka ${social.label}`}
                 className="group flex flex-col items-center gap-2 transition-all duration-300"
               >
-                <span className={`relative flex h-[3rem] w-[3rem] items-center justify-center rounded-[18px] bg-white ring-1 ring-black/5 shadow-sm transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl active-jelly ${style.wrapperRing}`}>
+                <span className={`relative flex h-[3rem] w-[3rem] items-center justify-center rounded-[16px] bg-white ring-1 ring-black/5 shadow-sm transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl active-jelly ${style.wrapperRing}`}>
                   
                   {/* Background Fill (starts at opacity 0, fades in) */}
-                  <span className={`absolute inset-0 z-0 rounded-[18px] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${style.bgHover}`} />
+                  <span className={`absolute inset-0 z-0 rounded-[16px] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${style.bgHover}`} />
                   
                   {/* Icon */}
                   <span className={`relative z-10 transition-colors duration-500 ease-out ${style.iconDefault} group-hover:text-white`}>

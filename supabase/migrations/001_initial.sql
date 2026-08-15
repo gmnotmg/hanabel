@@ -9,7 +9,7 @@ create table public.site_settings (
   bio text not null default '',
   avatar_url text not null default '',
   cover_url text not null default '',
-  disclosure text not null default 'Beberapa tautan di Hanabel adalah tautan affiliate. Harga dan ketersediaan mengikuti halaman Shopee.',
+  disclosure text not null default 'Beberapa tautan di Hanabel adalah tautan affiliate. Harga dan ketersediaan mengikuti Shopee.',
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
