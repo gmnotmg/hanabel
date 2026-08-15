@@ -27,45 +27,49 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   return (
-    <main className="page-shell py-5 sm:py-8">
-      <div className="mx-auto max-w-5xl space-y-7">
-        <Link href="/" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full px-1 text-sm font-bold text-lilac-700 hover:text-lilac-600">
-          <ArrowLeft aria-hidden="true" size={17} />
-          Kembali ke Hanabel
+    <main className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="space-y-8">
+        <Link href="/" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full px-2 py-1 text-sm font-bold text-[#8c56d4] transition-colors hover:text-purple-600 hover:bg-purple-50">
+          <ArrowLeft aria-hidden="true" size={18} />
+          Kembali ke Beranda
         </Link>
-        <header className="surface-card overflow-hidden p-6 sm:p-8">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <header className="rounded-[24px] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04] overflow-hidden p-6 sm:p-8">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <div className="mb-3 flex items-center gap-2 text-xs font-bold text-muted">
-                <Link href="/" className="soft-link">Home</Link>
+              <div className="mb-4 flex items-center gap-2 text-[0.8rem] font-bold text-slate-400">
+                <Link href="/" className="transition-colors hover:text-[#8c56d4]">Home</Link>
                 <ChevronRight aria-hidden="true" size={14} />
-                <span>{category.name}</span>
+                <span className="text-slate-600">{category.name}</span>
               </div>
-              <p className="eyebrow">Explore collection</p>
-              <h1 className="mt-2 text-3xl font-black tracking-tight text-ink sm:text-4xl">{category.name}</h1>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-muted">{category.description}</p>
+              <p className="text-[0.75rem] font-bold tracking-widest text-[#8c56d4] uppercase mb-2">Explore collection</p>
+              <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{category.name}</h1>
+              <p className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-slate-500">{category.description}</p>
             </div>
-            <SearchBox compact />
+            <div className="w-full md:w-auto">
+              <SearchBox compact />
+            </div>
           </div>
         </header>
 
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-bold text-ink"><span className="text-lilac-600">{products.length}</span> rekomendasi untuk kamu</p>
-          <span className="rounded-full bg-white/70 px-3 py-1.5 text-xs font-bold text-muted">Tanpa harga</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-2">
+          <p className="text-[0.95rem] font-bold text-slate-800"><span className="text-[#8c56d4]">{products.length}</span> rekomendasi pilihan</p>
+          <span className="rounded-full bg-white px-4 py-1.5 text-[0.75rem] font-bold text-slate-500 shadow-sm ring-1 ring-black/5">Harga di Shopee</span>
         </div>
 
         {products.length > 0 ? (
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {products.map((product) => <ProductCard key={product.id} product={product} />)}
           </div>
         ) : (
-          <div className="surface-card p-8 text-center">
-            <p className="font-black text-ink">Belum ada produk di kategori ini.</p>
-            <p className="mt-2 text-sm text-muted">Coba lihat kategori lainnya.</p>
+          <div className="rounded-[24px] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04] p-12 text-center flex flex-col items-center justify-center">
+            <p className="text-lg font-black text-slate-900">Belum ada produk di kategori ini.</p>
+            <p className="mt-2 text-[0.9rem] text-slate-500">Coba jelajahi kategori lainnya.</p>
           </div>
         )}
 
-        <AffiliateDisclosure text={settings.disclosure} />
+        <div className="pt-4">
+          <AffiliateDisclosure text={settings.disclosure} />
+        </div>
       </div>
     </main>
   );
