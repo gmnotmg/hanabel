@@ -5,14 +5,14 @@ import type { Category } from "@/lib/types";
 // Fallback image IDs based on category slug
 const getCategoryImage = (slug: string) => {
   const images: Record<string, string> = {
-    "perlengkapan-bayi": "1519689680058-324335c77eba", // Baby items
-    "pakaian-wanita": "1483985988355-763728e1935b",    // Fashion
-    "sepatu-sandal-wanita": "1543163521-1bf539c55dd2", // Heels
-    "elektronik": "1505740420928-5e560c06d30e",        // Headphones
-    "dekorasi-rumah": "1513694203232-719a280e022f",    // Home decor
-    "olahraga-fitness": "1518611012118-696072aa579a",  // Fitness/yoga
+    "perlengkapan-bayi": "photo-1519689680058-324335c77eba", // Baby items
+    "pakaian-wanita": "photo-1483985988355-763728e1935b",    // Fashion
+    "sepatu-sandal-wanita": "photo-1543163521-1bf539c55dd2", // Heels
+    "elektronik": "photo-1505740420928-5e560c06d30e",        // Headphones
+    "dekorasi-rumah": "photo-1513694203232-719a280e022f",    // Home decor
+    "olahraga-fitness": "photo-1518611012118-696072aa579a",  // Fitness/yoga
   };
-  return images[slug] || "1618221118493-9cfa1a1c00ea";
+  return images[slug] || "photo-1618221118493-9cfa1a1c00ea";
 };
 
 export function CategoryCard({ category }: { category: Category }) {
