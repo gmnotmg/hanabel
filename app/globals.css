@@ -48,9 +48,6 @@ a {
 }
 
 @layer components {
-  .page-shell {
-    @apply mx-auto w-full max-w-[440px] px-4 sm:px-6 lg:px-8;
-  }
 
   /* ── Bubbly Typography ── */
   h1, h2, h3, h4, .font-bubbly {

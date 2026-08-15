@@ -40,12 +40,12 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
   });
 
   return (
-    <section className="bg-white rounded-[24px] w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04]">
+    <section className="bg-white rounded-3xl w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-black/[0.04]">
       {/* ── Cover Image Container ── */}
       <div className="p-3 pb-0">
         <div className="relative w-full">
           {/* Banner */}
-          <div className="relative h-44 w-full bg-purple-50 rounded-[12px] overflow-hidden">
+          <div className="relative h-44 w-full bg-purple-50 rounded-xl overflow-hidden">
             {settings.coverUrl && (
               <Image
                 src={settings.coverUrl}
@@ -60,13 +60,13 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
           
           {/* Avatar (Absolute, precisely 50% overlapping the banner's bottom edge) */}
           <div className="absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 translate-y-1/2 justify-center">
-            <div className="group relative h-[8.5rem] w-[8.5rem] cursor-pointer rounded-full p-[3px] shadow-lg active-jelly">
+            <div className="group relative h-32 w-32 cursor-pointer rounded-full p-1 shadow-lg active-jelly">
               
               {/* Solid purple gradient ring that scales up on hover */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8c56d4] via-purple-400 to-pink-400 transition-transform duration-300 ease-out group-hover:scale-105" />
               
               {/* Inner avatar with thick white border */}
-              <div className="relative h-full w-full overflow-hidden rounded-full border-[4px] border-white bg-white shadow-[inset_0_2px_10px_rgba(0,0,0,0.08)]">
+              <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white bg-white shadow-[inset_0_2px_10px_rgba(0,0,0,0.08)]">
                 <Image
                   src={settings.avatarUrl}
                   alt={settings.brandName}
@@ -81,8 +81,8 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
       </div>
 
       {/* ── Profile Content ── */}
-      {/* pt-[4.25rem] (68px) exactly matches the 68px protruding avatar */}
-      <div className="relative z-10 px-5 pb-8 pt-[4.25rem] sm:px-8">
+      {/* pt-16 (64px) exactly matches the 64px protruding avatar (half of h-32) */}
+      <div className="relative z-10 px-5 pb-8 pt-16 sm:px-8">
         
         {/* Title & Badge */}
         <div className="flex flex-col items-center">
@@ -114,10 +114,10 @@ export function BrandHeader({ settings }: { settings: SiteSettings }) {
                 aria-label={`Buka ${social.label}`}
                 className="group flex flex-col items-center gap-2 transition-all duration-300"
               >
-                <span className={`relative flex h-[3rem] w-[3rem] items-center justify-center rounded-[16px] bg-white ring-1 ring-black/5 shadow-sm transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl active-jelly ${style.wrapperRing}`}>
+                <span className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white ring-1 ring-black/5 shadow-sm transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl active-jelly ${style.wrapperRing}`}>
                   
                   {/* Background Fill (starts at opacity 0, fades in) */}
-                  <span className={`absolute inset-0 z-0 rounded-[16px] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${style.bgHover}`} />
+                  <span className={`absolute inset-0 z-0 rounded-2xl opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${style.bgHover}`} />
                   
                   {/* Icon */}
                   <span className={`relative z-10 transition-colors duration-500 ease-out ${style.iconDefault} group-hover:text-white`}>
