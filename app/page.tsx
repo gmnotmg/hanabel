@@ -28,7 +28,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between px-1">
             <h2
               id="category-heading"
-              className="text-[1.15rem] font-extrabold tracking-tight bg-gradient-to-r from-[#8c56d4] to-[#c13584] bg-clip-text text-transparent drop-shadow-sm"
+              className="text-[1.1rem] font-bold tracking-tight text-[#8c56d4]"
             >
               Kategori
             </h2>
