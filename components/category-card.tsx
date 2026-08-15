@@ -1,21 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Category } from "@/lib/types";
 
-// Fallback image colors based on category slug
-const getCategoryGradient = (slug: string) => {
-  const gradients: Record<string, string> = {
-    "fashion-style": "from-fuchsia-500 to-pink-500",
-    kecantikan: "from-rose-400 to-orange-400",
-    "dekorasi-rumah": "from-amber-400 to-orange-500",
-    elektronik: "from-blue-500 to-cyan-500",
-    "kesehatan-wellness": "from-emerald-400 to-teal-500",
-    "olahraga-fitness": "from-violet-500 to-indigo-500",
+// Fallback image IDs based on category slug
+const getCategoryImage = (slug: string) => {
+  const images: Record<string, string> = {
+    "perlengkapan-bayi": "1519689680058-324335c77eba", // Baby items
+    "pakaian-wanita": "1483985988355-763728e1935b",    // Fashion
+    "sepatu-sandal-wanita": "1543163521-1bf539c55dd2", // Heels
+    "elektronik": "1505740420928-5e560c06d30e",        // Headphones
+    "dekorasi-rumah": "1513694203232-719a280e022f",    // Home decor
+    "olahraga-fitness": "1518611012118-696072aa579a",  // Fitness/yoga
   };
-  return gradients[slug] || "from-purple-500 to-indigo-500";
+  return images[slug] || "1618221118493-9cfa1a1c00ea";
 };
 
 export function CategoryCard({ category }: { category: Category }) {
-  const bgGradient = getCategoryGradient(category.slug);
+  const imageId = getCategoryImage(category.slug);
+  const imageUrl = `https://images.unsplash.com/${imageId}?auto=format&fit=crop&w=600&q=80`;
 
   return (
     <Link
@@ -23,10 +25,16 @@ export function CategoryCard({ category }: { category: Category }) {
       className="group relative flex h-full w-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] hover-bounce active-jelly"
     >
       {/* ── Top Area (Image Placeholder) ── */}
-      <div className={`relative h-40 w-full bg-gradient-to-br ${bgGradient} flex items-center justify-center p-6`}>
-        {/* Placeholder for actual image */}
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
-        <h3 className="relative text-2xl font-black tracking-tight text-white drop-shadow-lg text-center leading-tight px-2">
+      <div className="relative h-40 w-full bg-slate-100 flex items-center justify-center p-6 overflow-hidden">
+        <Image 
+          src={imageUrl} 
+          alt={category.name} 
+          fill 
+          sizes="(max-width: 768px) 50vw, 300px" 
+          className="object-cover transition-transform duration-500 group-hover:scale-105" 
+        />
+        <div className="absolute inset-0 bg-black/20 mix-blend-overlay transition-opacity duration-300 group-hover:bg-black/10" />
+        <h3 className="relative text-2xl font-black tracking-tight text-white drop-shadow-md text-center leading-tight px-2 z-10">
           {category.name}
         </h3>
       </div>
