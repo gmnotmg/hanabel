@@ -32,9 +32,8 @@ export default async function HomePage() {
             >
               Kategori
             </h2>
-            <Link href="#kategori" className="group flex items-center gap-1 text-[0.75rem] font-semibold text-slate-500 transition-colors hover:text-[#8c56d4]">
+            <Link href="#kategori" className="text-[0.75rem] font-semibold text-slate-500 transition-colors hover:text-[#8c56d4]">
               Lihat Semua
-              <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
